@@ -1,7 +1,7 @@
 # pylint: disable=len-as-condition
 import os
-from baiji import s3
 from cached_property import cached_property
+from baiji import s3
 
 
 class VersionedCache(object):
@@ -92,7 +92,7 @@ class VersionedCache(object):
             # version here is a local or s3 path
             return version
         else:
-            raise self.KeyNotFound("File not found: %s", version)
+            raise self.KeyNotFound("File not found: {}".format(version))
 
     def normalize_path(self, path):
         if not path.startswith('/'):
