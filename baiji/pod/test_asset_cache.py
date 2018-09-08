@@ -5,6 +5,8 @@ from scratch_dir import ScratchDirMixin
 from baiji import s3
 
 
+TEST_BUCKET = os.getenv('BAIJI_POD_TEST_BUCKET', 'baiji-pod-test')
+
 class CreateDefaultAssetCacheMixin(object):
     def setUp(self):
         from baiji.pod import AssetCache
@@ -26,7 +28,7 @@ class CreateTestAssetCacheMixin(object):
         # existing first.
         os.rmdir(self.cache_dir)
 
-        self.bucket = 'baiji-pod-test'
+        self.bucket = TEST_BUCKET
 
         config = Config()
         config.CACHE_DIR = self.cache_dir
@@ -46,9 +48,9 @@ class TestAssetCacheExceptions(CreateDefaultAssetCacheMixin, unittest.TestCase):
         from baiji.pod import AssetCache
 
         with self.assertRaises(s3.KeyNotFound):
-            self.cache('s3://baiji-pod-test/there/is/nothing/here/without.a.doubt')
+            self.cache('s3://{}/there/is/nothing/here/without.a.doubt'.format(TEST_BUCKET))
         with self.assertRaises(AssetCache.KeyNotFound):
-            self.cache('s3://baiji-pod-test/there/is/nothing/here/without.a.doubt')
+            self.cache('s3://{}/there/is/nothing/here/without.a.doubt'.format(TEST_BUCKET))
 
 
 class TestMissingAssets(CreateTestAssetCacheMixin, unittest.TestCase):
