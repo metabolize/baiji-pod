@@ -38,13 +38,13 @@ import importlib
 from setuptools import setup
 
 setup(
-    name='baiji-pod',
+    name='metabaiji-pod',
     version=get_version(),
     author='Body Labs',
     author_email='alex@bodylabs.com, paul.melnikow@bodylabs.com',
-    description='Static caching of files from Amazon S3, using baiji',
+    description="Active fork of baiji-pod, Body Labs' asset cache for S3 using baiji",
     long_description=long_description,
-    url='https://github.com/bodylabs/baiji-pod',
+    url='https://github.com/metabolize/baiji-pod',
     license='Apache',
     packages=[
         'baiji',
@@ -67,5 +67,6 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
+        'Programming Language :: Python :: 2.7',
     ]
 )

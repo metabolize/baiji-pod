@@ -1,10 +1,56 @@
-baiji-pod
-=========
+metabaiji-pod
+=============
+
+[![pip install](https://img.shields.io/badge/pip%20install-metabaiji--pod-f441b8.svg?style=flat-square)][pypi]
+[![version](https://img.shields.io/pypi/v/metabaiji-pod.svg?style=flat-square)][pypi]
+[![python versions](https://img.shields.io/pypi/pyversions/metabaiji-pod.svg?style=flat-square)][pypi]
+[![build status](https://img.shields.io/circleci/project/github/metabolize/baiji-pod/master.svg?style=flat-square)][circle]
+[![last commit](https://img.shields.io/github/last-commit/metabolize/baiji-pod.svg?style=flat-square)][commits]
+[![open pull requests](https://img.shields.io/github/issues-pr/metabolize/baiji-pod.svg?style=flat-square)][pull requests]
+
+This is an active fork of [baiji-pod][upstream], Body Labs' asset cache for S3 using [baiji][].
+
+The fork's goals are modest:
+
+- Keep the library working in current versions of Python and other tools.
+- Make bug fixes.
+- Provide API stability and backward compatibility with the upstream version.
+- Respond to community contributions.
+
+It's used by related forks such as [lace][].
+
+[upstream]: https://github.com/bodylabs/baiji-pod
+[circle]: https://circleci.com/gh/metabolize/baiji-pod
+[pypi]: https://pypi.org/project/metabaiji-pod/
+[pull requests]: https://github.com/metabolize/baiji-pod/pulls
+[commits]: https://github.com/metabolize/baiji-pod/commits/master
+[baiji]: https://github.com/bodylabs/baiji
+[lace]: https://github.com/metabolize/lace
+
+
+Installation
+------------
+
+Install the fork:
+
+```sh
+pip install metabaiji-pod
+```
+
+And import it just like the upstream library:
+
+```py
+from baiji.pod import AssetCache
+from baiji.pod import Config
+from baiji.pod import VersionedCache
+```
+
+
+Overview
+--------
 
 Versioned-tracked assets and a low-level asset cache for Amazon S3, using
 [baiji][].
-
-[baiji]: http://github.com/bodylabs/baiji
 
 
 Features
@@ -188,8 +234,8 @@ TODO
 Contribute
 ----------
 
-- Issue Tracker: https://github.com/bodylabs/baiji-pod/issues
-- Source Code: https://github.com/bodylabs/baiji-pod
+- Issue Tracker: https://github.com/metabolize/baiji-pod/issues
+- Source Code: https://github.com/metabolize/baiji-pod
 
 Pull requests welcome!
 
@@ -198,6 +244,16 @@ Support
 -------
 
 If you are having issues, please let us know.
+
+
+Acknowledgements
+----------------
+
+baiji-pod was developed at Body Labs, primarily by [Alex Weiss][] and
+[Paul Melnikow][].
+
+[alex weiss]: https://github.com/algrs
+[paul melnikow]: https://github.com/paulmelnikow
 
 
 License
