@@ -1,10 +1,11 @@
 import os
+import six
 from baiji import s3
 
 
-class CachedPath(unicode):
+class CachedPath(six.text_type):
     def __reduce__(self):
-        return unicode, (unicode(self),)
+        return six.text_type, (six.text_type(self),)
 
 
 class CacheFile(object):
@@ -201,7 +202,7 @@ class AssetCache(object):
             if verbose:
                 # stacklevel+2: one for `maybe_print`, one for `__call__`
                 where = stack_frame_info(stacklevel + 2).pretty
-                print message + ' - ' + where
+                print(message + ' - ' + where)
 
         cache_file = CacheFile(static_cache=self, path=path, bucket=bucket)
 

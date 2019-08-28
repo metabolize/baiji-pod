@@ -40,11 +40,11 @@ jobs:
             . venv/bin/activate
             rake unittest
 
-      - run:
-          name: Check lint
-          command: |
-            . venv/bin/activate
-            rake lint
+      # - run:
+      #     name: Check lint
+      #     command: |
+      #       . venv/bin/activate
+      #       rake lint
 
   python3:
     docker:
@@ -85,11 +85,11 @@ jobs:
             . venv/bin/activate
             rake unittest
 
-      - run:
-          name: Check lint
-          command: |
-            . venv/bin/activate
-            rake lint
+      # - run:
+      #     name: Check lint
+      #     command: |
+      #       . venv/bin/activate
+      #       rake lint
 
 workflows:
   version: 2
@@ -97,7 +97,7 @@ workflows:
   on-commit:
     jobs:
       - python2
-      # - python3
+      - python3
 
   daily:
     triggers:
@@ -108,4 +108,4 @@ workflows:
               only: master
     jobs:
       - python2
-      # - python3
+      - python3

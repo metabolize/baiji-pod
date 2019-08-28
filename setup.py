@@ -6,7 +6,7 @@ try:
     long_description = pypandoc.convert('README.md', 'rst')
 except (IOError, ImportError):
     long_description = ''
-    print 'warning: pandoc or pypandoc does not seem to be installed; using empty long_description'
+    print('warning: pandoc or pypandoc does not seem to be installed; using empty long_description')
 
 import os
 requirements_file = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'requirements.txt')
@@ -21,7 +21,7 @@ def get_version():
     import subprocess
 
     proc = subprocess.Popen(
-        ['python', '-c', 'import package_version; print package_version.__version__'],
+        ['python', '-c', 'import package_version; print(package_version.__version__)'],
         cwd=os.path.join(os.path.dirname(__file__), 'baiji/pod'),
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE,
@@ -66,7 +66,7 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
-        'Programming Language :: Python',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
     ]
 )

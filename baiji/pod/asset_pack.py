@@ -76,13 +76,13 @@ def dump(cache, versioned_cache, paths, save_to, max_size=None):
         else:
             zip_path = os.path.splitext(save_to)[0] + '.zip'
 
-        print 'Building {} with {} files, {} bytes'.format(
-            zip_path, len(files_in_zip), sum([x.size for x in files_in_zip]))
+        print('Building {} with {} files, {} bytes'.format(
+            zip_path, len(files_in_zip), sum([x.size for x in files_in_zip])))
 
         with zipfile.ZipFile(
             zip_path, 'w', zipfile.ZIP_DEFLATED, allowZip64=True) as zf:
             for f in files_in_zip:
-                print '  Adding {}'.format(f.dst)
+                print('  Adding {}'.format(f.dst))
                 zf.write(f.src, f.dst)
 
 def load(static_cache, asset_pack_paths):

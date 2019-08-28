@@ -1,11 +1,11 @@
 import unittest
 import os
 import mock
-from scratch_dir import ScratchDirMixin
 from baiji import s3
+from baiji.pod.testing.scratch_dir import ScratchDirMixin
 
 
-TEST_BUCKET = os.getenv('BAIJI_POD_TEST_BUCKET', 'baiji-pod-test')
+TEST_BUCKET = os.getenv('BAIJI_POD_TEST_BUCKET', 'metabaiji-pod-test')
 
 class CreateDefaultAssetCacheMixin(object):
     def setUp(self):
@@ -251,11 +251,11 @@ class TestCachePath(ScratchDirMixin, unittest.TestCase):
         self.assertIsInstance(cache_path, CachedPath)
 
         path = self.get_tmp_path('cached_path.pkl')
-        with open(path, 'w') as f:
+        with open(path, 'wb') as f:
             pickle.dump(cache_path, f)
 
         with mock.patch('baiji.pod.asset_cache.CachedPath') as m:
-            with open(path, 'r') as f:
+            with open(path, 'rb') as f:
                 loaded_cache_path = pickle.load(f)
             m.assert_not_called()
 

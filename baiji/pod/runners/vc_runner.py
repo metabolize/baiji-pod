@@ -125,35 +125,35 @@ class VCRunner(object):
 
         if args.command == 'versions':
             for v in vc.versions_available(args.path):
-                print v
+                print(v)
 
         if args.command == 'sync':
-            print 'sync to {}'.format(args.destination)
+            print('sync to {}'.format(args.destination))
             vc.sync(args.destination)
 
         if args.command == 'ls':
-            print '\n'.join(sorted(vc.manifest_files))
+            print('\n'.join(sorted(vc.manifest_files)))
 
         if args.command == 'ls-remote':
-            print '\n'.join(sorted(vc.ls_remote()))
+            print('\n'.join(sorted(vc.ls_remote())))
 
         if args.command == 'get':
             f = vc(args.path, version=args.version)
-            print 'copying {} version {} to {}'.format(
+            print('copying {} version {} to {}'.format(
                 args.path,
                 vc.manifest_version(args.path),
-                args.destination)
+                args.destination))
             s3.cp(f, args.destination)
 
         if args.command == 'path':
-            print vc(args.path, version=args.version)
+            print(vc(args.path, version=args.version))
 
         if args.command == 'open':
             import subprocess
             subprocess.call(['open', vc(args.path, version=args.version)])
 
         if args.command == 'path-remote':
-            print vc.uri(args.path, version=args.version)
+            print(vc.uri(args.path, version=args.version))
 
         if args.command == 'cat':
             import shutil

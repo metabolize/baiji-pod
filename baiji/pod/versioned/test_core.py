@@ -1,6 +1,6 @@
 import unittest
 import mock
-from scratch_dir import ScratchDirMixin
+from baiji.pod.testing.scratch_dir import ScratchDirMixin
 
 
 class TestVC(ScratchDirMixin, unittest.TestCase):

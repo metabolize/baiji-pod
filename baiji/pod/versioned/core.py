@@ -166,9 +166,10 @@ class VersionedCache(object):
             return None
 
     def normalize_version_number(self, version):
+        import six
         import semantic_version
 
-        if isinstance(version, basestring):
+        if isinstance(version, six.string_types):
             version = semantic_version.Version(version, partial=True)
 
         if version.major is None:
@@ -323,8 +324,8 @@ class VersionedCache(object):
     def sync(self, destination):
         for f in self.manifest_files:
             target = s3.path.join(destination, f[1:])
-            print 'Copying {} version {} to {}'.format(
+            print('Copying {} version {} to {}'.format(
                 f,
                 self.manifest_version(f),
-                target)
+                target))
             s3.cp(self(f), target, force=True)

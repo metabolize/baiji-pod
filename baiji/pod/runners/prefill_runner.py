@@ -61,7 +61,7 @@ class PrefillRunner(object):
         paths = yaml.load(os.path.expanduser(args.file))
 
         if paths is None:
-            print 'Nothing to prefill!'
+            print('Nothing to prefill!')
         else:
             prefill(
                 asset_cache=self.cache,

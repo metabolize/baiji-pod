@@ -21,7 +21,7 @@ class PrefillWorker(ParallelWorker):
             else:
                 self.vc(remote, verbose=self.verbose)
         except s3.KeyNotFound:
-            print '{} is in the prefill manifest, but is not found!'.format(remote)
+            print('{} is in the prefill manifest, but is not found!'.format(remote))
 
 
 def prefill(asset_cache, versioned_cache, paths, num_processes=None, verbose=False):
@@ -38,5 +38,5 @@ def prefill(asset_cache, versioned_cache, paths, num_processes=None, verbose=Fal
             args=[asset_cache, versioned_cache, verbose],
             num_processes=num_processes)
 
-    print ''
-    print 'sc prefill done in {} seconds'.format(t.elapsed_time_s)
+    print('')
+    print('sc prefill done in {} seconds'.format(t.elapsed_time_s))
