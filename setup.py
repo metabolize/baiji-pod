@@ -32,7 +32,7 @@ def get_version():
     if not proc.returncode == 0:
         raise ValueError('Expected a version')
 
-    return output.strip()
+    return output.decode('utf-8').strip()
 
 import importlib
 from setuptools import setup
