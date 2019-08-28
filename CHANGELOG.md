@@ -1,6 +1,11 @@
 Changelog for the Metabolize fork
 =================================
 
+## 1.1.1 (Aug 28, 2019)
+
+- Fix installation under Python 3.
+
+
 ## 1.1.0 (Aug 28, 2019)
 
 - Switch to forked dependencies.
